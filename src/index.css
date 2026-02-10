@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --- Base styles --- */
+@layer base {
+  body {
+    background: radial-gradient(ellipse at 60% 40%, rgba(80, 0, 120, 0.7) 0%, rgba(0, 60, 40, 0.5) 60%, rgba(0, 40, 80, 0.7) 100%),
+      linear-gradient(120deg, #18122b 0%, #232946 100%);
+    /* Dark space with subtle filtered lights */
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  @keyframes chessboard-fade {
+
+    0%,
+    100% {
+      opacity: 0;
+    }
+
+    10% {
+      opacity: 0.32;
+    }
+
+    50% {
+      opacity: 0.32;
+    }
+
+    90% {
+      opacity: 0.32;
+    }
+  }
+
+  /* Removed global chessboard/check pattern overlay */
+
+  ::selection {
+    background-color: #00f0ff;
+    /* Neon Cyan */
+    color: #000000;
+  }
+
+  /* Headings */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #ffffff;
+  }
+}
+
+/* --- Glassmorphism components --- */
+@layer components {
+  .glass-panel {
+    background: rgba(10, 10, 20, 0.4);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.05);
+  }
+
+  .glass-card {
+    background: linear-gradient(135deg,
+        rgba(255, 255, 255, 0.03) 0%,
+        rgba(255, 255, 255, 0.01) 100%);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    border-color: rgba(0, 240, 255, 0.3);
+    box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.15);
+    transform: translateY(-5px);
+  }
+
+  .glass-button {
+    background: rgba(0, 240, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(0, 240, 255, 0.2);
+    border-radius: 0.75rem;
+    color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-button:hover {
+    background: rgba(0, 240, 255, 0.25);
+    border-color: rgba(0, 240, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  }
+
+  .glass-button:active {
+    transform: scale(0.95);
+  }
+}
+
+/* --- Custom utilities / animations --- */
+@layer utilities {
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0px);
+    }
+
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes gradient {
+
+    0%,
+    100% {
+      background-size: 200% 200%;
+      background-position: left center;
+    }
+
+    50% {
+      background-size: 200% 200%;
+      background-position: right center;
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-gradient {
+    animation: gradient 8s linear infinite;
+  }
+}
