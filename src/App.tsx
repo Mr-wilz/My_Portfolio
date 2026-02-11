@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
 import TypingText from "./components/TypingText";
+import ContactForm from "./components/formModal";
 import {
   Github,
   Linkedin,
@@ -9,6 +10,7 @@ import {
   ChevronRight,
   Layers,
   Cpu,
+  VideoIcon as Tiktok,
 } from "lucide-react";
 import ProjectCard from "./components/projectCard";
 import TechStack from "./components/techStack";
@@ -82,12 +84,12 @@ function App() {
                   <h1 className="text-3xl lg:text-5xl font-bold mb-4 leading-tight text-accent tracking-tight">
                     <TypingText
                       words={["Hi I'm Wilfort", "I'm a Frontend Developer"]}
-                      className="text-lg lg:text-5xl font-bold mb-4 leading-tight text-accent tracking-tight"
+                      className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 inline-block mb-4"
                     />
                   </h1>
 
                   {/* Bio Description */}
-                  <p className="text-xl text-text-secondary mb-8 leading-relaxed max-w-lg">
+                  <p className="text-xl text-text-secondary mb-8 leadiong-relaxed max-w-lg">
                     I craft high-performance web experiences with{" "}
                     <span className="text-white font-semibold">React</span>,{" "}
                     <span className="text-white font-semibold">TypeScript</span>
@@ -289,7 +291,7 @@ function App() {
               <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-purple-500/10 to-transparent -z-10" />
 
               <div className="max-w-2xl mx-auto relative z-10">
-                <h2 className="text-4xl lg:text-5xl font-bold mb-6 text-white">
+                <h2 className="text-4xl lg:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 inline-block mb-4">
                   Let's Build Something{" "}
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">
                     Amazing
@@ -300,15 +302,7 @@ function App() {
                   opportunities. Let's discuss how we can work together!
                 </p>
 
-                {/* Email Button */}
-                <motion.a
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  href="mailto:wilzabel@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Wilfort,%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.%0D%0A%0D%0AThanks,"
-                  className="inline-flex items-center space-x-3 bg-white text-black px-10 py-4 rounded-xl font-bold text-lg hover:bg-gray-200 transition-colors duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                  <Mail className="w-5 h-5" />
-                  <span>wilzabel@gmail.com</span>
-                </motion.a>
+                <ContactForm />
 
                 {/* Social Links Footer */}
                 <div className="flex justify-center space-x-6 mt-12">
@@ -322,6 +316,11 @@ function App() {
                       icon: Linkedin,
                       href: "https://linkedin.com",
                       label: "LinkedIn",
+                    },
+                    {
+                      icon: Tiktok,
+                      href: "https://www.tiktok.com/@atlantacityrole92?is_from_webapp=1&sender_device=pc",
+                      label: "TikTok",
                     },
                     {
                       icon: Mail,

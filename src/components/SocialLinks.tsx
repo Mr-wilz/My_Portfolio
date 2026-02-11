@@ -6,6 +6,7 @@ import {
   X,
   MessageCircle,
   Mail,
+  Video,
 } from "lucide-react";
 
 const socials = [
@@ -36,8 +37,13 @@ const socials = [
     label: "WhatsApp",
   },
   {
+    icon: Video,
+    href: "https://www.tiktok.com/@atlantacityrole92?is_from_webapp=1&sender_device=pc",
+    label: "TikTok",
+  },
+  {
     icon: Mail,
-    href: "mailto:wilzabel@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Wilfort,%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.%0D%0A%0D%0AThanks,",
+    href: "mailto:whilzabel@gmail.com?subject=Hire%20Inquiry&body=Hello%20Wilfort,%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.%0D%0A%0D%0AThanks,",
     label: "Email",
   },
 ];

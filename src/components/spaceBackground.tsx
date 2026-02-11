@@ -139,8 +139,7 @@ export default function SpaceBackground() {
         ))}
       </div>
       {gridSquares}
-      {/* Original slower comet (top right to bottom right) */}
-      {/* 🌌 Dark space with subtle filtered lights */}
+
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_60%_40%,rgba(88,28,135,0.35)_0%,rgba(16,185,129,0.12)_60%,rgba(37,99,235,0.18)_100%)] bg-blend-plus-lighter opacity-80" />
       <motion.div
         animate={{
