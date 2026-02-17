@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, Mail, X } from "lucide-react";
-import SocialLinks from "./SocialLinks";
+import { Menu, Mail } from "lucide-react";
+import MobileSidebar from "./MobileSidebar";
 
 interface NavbarProps {
   scrollToSection?: (id: string) => void;
@@ -12,7 +12,7 @@ interface NavbarProps {
 export default function Navbar({ scrollToSection }: NavbarProps) {
   const [open, setOpen] = useState(false);
 
-  const navItems = ["tech", "projects", "experience", "contact"];
+  const navItems = ["techstack", "projects", "experience", "contact", "resume"];
 
   return (
     <>
@@ -20,8 +20,8 @@ export default function Navbar({ scrollToSection }: NavbarProps) {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 mt-1">
-        <div className="glass-panel max-w-7xl mx-auto px-4 lg:px-8 rounded-xl sticky shadow-2xl backdrop-blur-lg border border-white/20">
+        className="fixed top-0 left-0 right-0 z-50 mt-1 mx-2">
+        <div className="glass-panel max-w-8xl mx-auto px-4 lg:px-8 rounded-xl sticky shadow-2xl backdrop-blur-lg border border-white/20">
           <div className="flex justify-between items-center h-16">
             {/* Logo Section */}
             <motion.div
@@ -77,63 +77,12 @@ export default function Navbar({ scrollToSection }: NavbarProps) {
       </motion.nav>
 
       {/* ================= MOBILE SIDEBAR ================= */}
-      {/* Backdrop Overlay */}
-      <div
-        onClick={() => setOpen(false)}
-        className={`fixed inset-0 bg-black/60 z-40 transition-opacity ${
-          open ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
+      <MobileSidebar
+        isOpen={open}
+        onClose={() => setOpen(false)}
+        navItems={navItems}
+        scrollToSection={scrollToSection}
       />
-
-      {/* Sidebar Content */}
-      <aside
-        className={`fixed top-0 right-0 h-full w-100 z-50 transform transition-transform duration-300
-        bg-black/40 backdrop-blur-xl border-l border-white/10
-        ${open ? "translate-x-0" : "translate-x-full"}`}>
-        {/* Sidebar Header */}
-        <div className="flex items-center justify-between space-x-2 px-6 py-4 border-b border-white/10">
-          <div className="flex items-center space-x-2">
-            <img
-              src="/GucciWilz.png"
-              alt="Dev-Wilz Logo"
-              className="w-8 h-8 rounded-full"
-            />
-            <span className="text-lg font-bold text-white">Dev-Wilz</span>
-          </div>
-          <button onClick={() => setOpen(false)}>
-            <X className="text-white" />
-          </button>
-        </div>
-
-        {/* Mobile Navigation Links */}
-        <nav className="flex flex-col gap-6 px-6 py-8">
-          {navItems.map((item) => (
-            <button
-              key={item}
-              onClick={() => {
-                scrollToSection?.(item);
-                setOpen(false);
-              }}
-              className="capitalize text-gray-300 text-lg hover:text-blue-400 text-left">
-              {item}
-            </button>
-          ))}
-
-          {/* Mobile CTA Button */}
-          <a
-            href="mailto:wilzabel@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Wilfort,%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.%0D%0A%0D%0AThanks,"
-            className="mt-6 flex items-center gap-2 px-4 py-3 rounded-lg
-            bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/30 text-blue-400">
-            <Mail className="w-4 h-4" />
-            <span>Hire Me</span>
-          </a>
-
-          {/* Mobile Social Icons */}
-          <div className="mt-10 md:hidden">
-            <SocialLinks direction="horizontal" />
-          </div>
-        </nav>
-      </aside>
     </>
   );
 }

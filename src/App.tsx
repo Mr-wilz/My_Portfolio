@@ -57,9 +57,9 @@ function App() {
 
       {/* Main Content Area */}
       <div className="relative z-10 min-h-screen overflow-hidden">
-        <main className="container mx-auto px-4 lg:px-8 pt-4 pb-8 max-w-7xl">
+        <main className="container mx-auto px-4 lg:px-8 pt-16 max-w-7xl">
           {/* Hero Section: Introduction and CTA */}
-          <Section id="hero">
+          <Section id="hero" >
             <div className="grid lg:grid-cols-2 gap-12 items-start pt-[16px] lg:pt-32 pb-12">
               {/* Left Column: Text Content */}
               <motion.div
@@ -92,7 +92,8 @@ function App() {
                   <p className="text-xl text-text-secondary mb-8 leadiong-relaxed max-w-lg">
                     I craft high-performance web experiences with{" "}
                     <span className="text-white font-semibold">React</span>,{" "}
-                    <span className="text-white font-semibold">TypeScript</span>
+                    <span className="text-white font-semibold">TypeScript</span>,{" "}
+                    <span className="text-white font-semibold">Next.js</span>
                     , and modern UI libraries. Let's turn ideas into reality.
                   </p>
 
@@ -123,7 +124,7 @@ function App() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
-                className="relative hidden lg:block h-[600px] w-full">
+                className="relative hidden lg:block  w-full">
                 {/* 3D Perspective Container */}
                 <div className="relative perspective-1000">
                   {/* Main Floating Card (Code Editor Mockup) */}
@@ -134,7 +135,7 @@ function App() {
                       repeat: Infinity,
                       ease: "easeInOut",
                     }}
-                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[250px] glass-card p-6 z-20 border-t border-l border-white/20">
+                    className="absolute  -translate-x-1/2 -translate-y-1/2 w-[400px] h-[250px] glass-card p-6 z-20 border-t border-l border-white/20">
                     <div className="flex items-center space-x-2 mb-4">
                       <div className="w-3 h-3 rounded-full bg-red-500" />
                       <div className="w-3 h-3 rounded-full bg-yellow-500" />
@@ -151,7 +152,7 @@ function App() {
                       <div className="pl-4 text-white">
                         skills:{" "}
                         <span className="text-blue-400">
-                          ['React', 'Next.js', 'TS']
+                          ['React', 'Angular', 'Vue', 'Next.js', 'TS']
                         </span>
                         ,
                       </div>
@@ -185,7 +186,7 @@ function App() {
                       delay: 0.5,
                     }}
                     className="absolute bottom-[20%] left-[10%] p-4 glass-panel bg-black/40 z-30">
-                    <Layers className="w-8 h-8 text-purple-400" />
+                    <Layers className="w-4 h-4 text-purple-400" />
                   </motion.div>
 
                   {/* Decorative Glows */}
@@ -305,7 +306,7 @@ function App() {
                 <ContactForm />
 
                 {/* Social Links Footer */}
-                <div className="flex justify-center space-x-6 mt-12">
+                <div className="flex justify-center space-x-6 mt-12 flex-wrap gap-2 items-center">
                   {[
                     {
                       icon: Github,
