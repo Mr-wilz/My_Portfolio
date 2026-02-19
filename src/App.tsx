@@ -92,9 +92,9 @@ function App() {
                   <p className="text-xl text-text-secondary mb-8 leadiong-relaxed max-w-lg">
                     I craft high-performance web experiences with{" "}
                     <span className="text-white font-semibold">React</span>,{" "}
-                    <span className="text-white font-semibold">TypeScript</span>,{" "}
-                    <span className="text-white font-semibold">Next.js</span>
-                    , and modern UI libraries. Let's turn ideas into reality.
+                    <span className="text-white font-semibold">TypeScript</span>
+                    , <span className="text-white font-semibold">Next.js</span>,
+                    and modern UI libraries. Let's turn ideas into reality.
                   </p>
 
                   {/* CTA Buttons */}
@@ -306,16 +306,16 @@ function App() {
                 <ContactForm />
 
                 {/* Social Links Footer */}
-                <div className="flex justify-center space-x-6 mt-12 flex-wrap gap-2 items-center">
+                <div className="flex justify-center items-center flex-wrap mt-8  gap-2">
                   {[
                     {
                       icon: Github,
-                      href: "https://github.com",
+                      href: "https://github.com/mr-wilz",
                       label: "GitHub",
                     },
                     {
                       icon: Linkedin,
-                      href: "https://linkedin.com",
+                      href: "https://www.linkedin.com/in/mrwilz111/",
                       label: "LinkedIn",
                     },
                     {
