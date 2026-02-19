@@ -59,7 +59,7 @@ function App() {
       <div className="relative z-10 min-h-screen overflow-hidden">
         <main className="container mx-auto px-4 lg:px-8 pt-16 max-w-7xl">
           {/* Hero Section: Introduction and CTA */}
-          <Section id="hero" >
+          <Section id="hero">
             <div className="grid lg:grid-cols-2 gap-12 items-start pt-[16px] lg:pt-32 pb-12">
               {/* Left Column: Text Content */}
               <motion.div

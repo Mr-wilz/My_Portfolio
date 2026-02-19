@@ -31,6 +31,7 @@ export default function MobileSidebar({
 
   return (
     <>
+      {/* Overlay */}
       <div
         onClick={onClose}
         className={`fixed inset-0 bg-black/60 z-40 transition-opacity ${
@@ -38,11 +39,14 @@ export default function MobileSidebar({
         }`}
       />
 
+      {/* Sidebar */}
       <aside
+        // Use 'inert' when closed to prevent focus errors
+        // @ts-ignore (inert is a newer attribute, TS might need a nudge)
+        inert={!isOpen ? "" : undefined}
         className={`fixed top-0 right-0 h-full z-50 transform transition-transform duration-300
         bg-black/40 backdrop-blur-xl border-l border-white/10
-        w-72 ${isOpen ? "translate-x-0" : "translate-x-full"}`}
-        aria-hidden={!isOpen}>
+        w-72 ${isOpen ? "translate-x-0" : "translate-x-full"}`}>
         <div className="flex h-full flex-col overflow-y-auto overflow-x-hidden">
           <div className="flex items-center justify-between space-x-2 px-6 py-4 border-b border-white/10">
             <div className="flex items-center space-x-2 min-w-0">
@@ -58,8 +62,8 @@ export default function MobileSidebar({
             <button
               onClick={onClose}
               aria-label="Close menu"
-              className="flex-shrink-0">
-              <X className="text-white" />
+              className="flex-shrink-0 group">
+              <X className="text-white group-hover:text-blue-400 transition-colors" />
             </button>
           </div>
 
@@ -71,7 +75,7 @@ export default function MobileSidebar({
                   scrollToSection?.(item);
                   onClose();
                 }}
-                className="capitalize text-gray-300 text-lg hover:text-blue-400 text-left break-words">
+                className="capitalize text-gray-300 text-lg hover:text-blue-400 text-left break-words transition-colors">
                 {item}
               </button>
             ))}
@@ -79,7 +83,7 @@ export default function MobileSidebar({
             <a
               href="mailto:wilzabel@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Wilfort,%0D%0A%0D%0AI%20saw%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project.%0D%0A%0D%0AThanks,"
               className="mt-6 flex items-center gap-2 px-4 py-3 rounded-lg
-            bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/30 text-blue-400 break-words flex-shrink-0">
+            bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/30 text-blue-400 break-words flex-shrink-0 transition-all active:scale-95">
               <Mail className="w-4 h-4 flex-shrink-0" />
               <span>Hire Me</span>
             </a>
