@@ -26,11 +26,11 @@ export const projects = [
     title: "Travel Planning App",
     description:
       "AI-powered travel planner with itinerary generation and location-based recommendations.",
-    technologies: ["React", "Mapbox", "OpenAI", "Express", "MongoDB"],
+    technologies: ["React", "Mapbox", "OpenAI", "Supabase", "OpenRouter API"],
     category: "react" as const,
-    githubUrl: "https://github.com",
-    liveUrl: "https://demo.com",
-    image: "/project3.jpg",
+    githubUrl: "https://github.com/Mr-wilz/PLAN-IT",
+    liveUrl: "https://planitai.netlify.app/",
+    image: "/planit.png",
   },
   {
     id: 4,
