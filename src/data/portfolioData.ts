@@ -55,7 +55,14 @@ export const navLinks = [
 export const skillGroups = [
   {
     category: "Frontend",
-    skills: ["React", "TypeScript", "Next.js", "Angular", "Vue", "Tailwind CSS"],
+    skills: [
+      "React",
+      "TypeScript",
+      "Next.js",
+      "Angular",
+      "Vue",
+      "Tailwind CSS",
+    ],
   },
   {
     category: "Tools & Workflow",
@@ -132,7 +139,7 @@ export const projects = [
     category: "react" as const,
     githubUrl: "https://github.com/Mr-wilz/PLAN-IT",
     liveUrl: "https://planitai.netlify.app/",
-    image: "/planit.png",
+    image: "/Planit.png",
   },
   {
     id: 4,
@@ -164,8 +171,8 @@ export const projects = [
     technologies: ["Next.js", "Socket.io", "WebRTC", "Redis", "Docker"],
     category: "next" as const,
     githubUrl: "https://github.com/Mr-wilz/GoChat",
-    liveUrl: "https://gochat.vercel.app/",
-    image: "/GoChat.jpg",
+    liveUrl: "https://go-chat-pink.vercel.app/",
+    image: "/gochat.jpg",
   },
   {
     id: 7,
