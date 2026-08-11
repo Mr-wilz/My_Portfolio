@@ -4,34 +4,46 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "#0b0b0b", // fallback solid color
-        accent: "#3b82f6",
-        text: "#f0f0f0",
-        secondaryText: "#a0a0a0",
+        surface: {
+          DEFAULT: "#09090b",
+          raised: "#111113",
+          overlay: "#18181b",
+          border: "rgba(255, 255, 255, 0.08)",
+        },
+        accent: {
+          DEFAULT: "#6366f1",
+          hover: "#818cf8",
+          muted: "rgba(99, 102, 241, 0.12)",
+        },
+        muted: {
+          DEFAULT: "#71717a",
+          foreground: "#a1a1aa",
+        },
+      },
+      fontFamily: {
+        sans: [
+          "Inter",
+          "ui-sans-serif",
+          "system-ui",
+          "-apple-system",
+          "BlinkMacSystemFont",
+          "Segoe UI",
+          "Roboto",
+          "Helvetica Neue",
+          "Arial",
+          "sans-serif",
+        ],
+      },
+      maxWidth: {
+        content: "68rem",
       },
       animation: {
-        gradient: "gradient 8s linear infinite",
-        float: "float 6s ease-in-out infinite",
-        pulse: "pulse 4s ease-in-out infinite",
+        "fade-in": "fadeIn 0.6s ease-out forwards",
       },
       keyframes: {
-        gradient: {
-          "0%, 100%": {
-            "background-size": "200% 200%",
-            "background-position": "left center",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "right center",
-          },
-        },
-        float: {
-          "0%, 100%": { transform: "translateY(0) translateX(0)" },
-          "50%": { transform: "translateY(-20px) translateX(10px)" },
-        },
-        pulse: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0.5" },
+        fadeIn: {
+          "0%": { opacity: "0", transform: "translateY(12px)" },
+          "100%": { opacity: "1", transform: "translateY(0)" },
         },
       },
     },

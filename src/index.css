@@ -2,142 +2,102 @@
 @tailwind components;
 @tailwind utilities;
 
-/* --- Base styles --- */
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    background: radial-gradient(ellipse at 60% 40%, rgba(80, 0, 120, 0.7) 0%, rgba(0, 60, 40, 0.5) 60%, rgba(0, 40, 80, 0.7) 100%),
-      linear-gradient(120deg, #18122b 0%, #232946 100%);
-    /* Dark space with subtle filtered lights */
-    color: #ffffff;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-      "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-    overflow-x: hidden;
-    position: relative;
+    @apply bg-surface text-zinc-100 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
   }
-
-  @keyframes chessboard-fade {
-
-    0%,
-    100% {
-      opacity: 0;
-    }
-
-    10% {
-      opacity: 0.32;
-    }
-
-    50% {
-      opacity: 0.32;
-    }
-
-    90% {
-      opacity: 0.32;
-    }
-  }
-
-  /* Removed global chessboard/check pattern overlay */
 
   ::selection {
-    background-color: #00f0ff;
-    /* Neon Cyan */
-    color: #000000;
+    @apply bg-accent/30 text-white;
   }
 
-  /* Headings */
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    color: #ffffff;
+  :focus-visible {
+    @apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-surface;
   }
 }
 
-/* --- Glassmorphism components --- */
 @layer components {
-  .glass-panel {
-    background: rgba(10, 10, 20, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 1rem;
-    box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.05);
+  .section-padding {
+    @apply px-5 py-24 sm:px-8 lg:px-10 lg:py-32;
   }
 
-  .glass-card {
-    background: linear-gradient(135deg,
-        rgba(255, 255, 255, 0.03) 0%,
-        rgba(255, 255, 255, 0.01) 100%);
-    backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.05);
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
-    transition: all 0.3s ease;
+  .card {
+    @apply rounded-xl border border-white/[0.08] bg-surface-raised/80;
   }
 
-  .glass-card:hover {
-    border-color: rgba(0, 240, 255, 0.3);
-    box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.15);
-    transform: translateY(-5px);
+  .card-hover {
+    @apply card transition-colors duration-200 hover:border-white/[0.14] hover:bg-surface-overlay/60;
   }
 
-  .glass-button {
-    background: rgba(0, 240, 255, 0.1);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(0, 240, 255, 0.2);
-    border-radius: 0.75rem;
-    color: #ffffff;
-    box-shadow: 0 0 10px rgba(0, 240, 255, 0.1);
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  .text-gradient {
+    @apply bg-gradient-to-r from-zinc-100 to-zinc-400 bg-clip-text text-transparent;
   }
 
-  .glass-button:hover {
-    background: rgba(0, 240, 255, 0.25);
-    border-color: rgba(0, 240, 255, 0.5);
-    box-shadow: 0 0 20px rgba(0, 240, 255, 0.3);
+  .tag {
+    @apply inline-flex items-center rounded-md border border-white/[0.08] bg-white/[0.04] px-2.5 py-1 text-xs font-medium text-muted-foreground;
   }
 
-  .glass-button:active {
-    transform: scale(0.95);
+  .sr-only {
+    @apply absolute -m-px h-px w-px overflow-hidden whitespace-nowrap border-0 p-0;
+    clip: rect(0, 0, 0, 0);
+  }
+
+  .sr-only:focus {
+    @apply static m-0 h-auto w-auto overflow-visible whitespace-normal p-0;
+    clip: auto;
   }
 }
 
-/* --- Custom utilities / animations --- */
-@layer utilities {
-  @keyframes float {
+/* ===== Animated Stars Background ===== */
+.stars,
+.stars2,
+.stars3 {
+  background-repeat: repeat;
+  animation: move-stars linear infinite;
+}
 
-    0%,
-    100% {
-      transform: translateY(0px);
-    }
+.stars {
+  background-image:
+    radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+    radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+    radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+    radial-gradient(2px 2px at 160px 120px, #ddd, transparent),
+    radial-gradient(1px 1px at 230px 80px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 300px 150px, #eee, transparent);
+  background-size: 350px 200px;
+  animation-duration: 120s;
+}
 
-    50% {
-      transform: translateY(-20px);
-    }
+.stars2 {
+  background-image:
+    radial-gradient(1px 1px at 50px 100px, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 120px 50px, #ddd, transparent),
+    radial-gradient(1px 1px at 200px 180px, #fff, transparent),
+    radial-gradient(2px 2px at 280px 90px, #eee, transparent);
+  background-size: 400px 250px;
+  animation-duration: 80s;
+}
+
+.stars3 {
+  background-image:
+    radial-gradient(1px 1px at 80px 20px, #fff, transparent),
+    radial-gradient(1px 1px at 150px 140px, #ccc, transparent),
+    radial-gradient(1.5px 1.5px at 250px 60px, #fff, transparent);
+  background-size: 500px 300px;
+  animation-duration: 50s;
+}
+
+@keyframes move-stars {
+  from {
+    transform: translateY(0);
   }
 
-  @keyframes gradient {
-
-    0%,
-    100% {
-      background-size: 200% 200%;
-      background-position: left center;
-    }
-
-    50% {
-      background-size: 200% 200%;
-      background-position: right center;
-    }
-  }
-
-  .animate-float {
-    animation: float 6s ease-in-out infinite;
-  }
-
-  .animate-gradient {
-    animation: gradient 8s linear infinite;
+  to {
+    transform: translateY(-200px);
   }
 }
