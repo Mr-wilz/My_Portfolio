@@ -121,13 +121,13 @@ export const projects = [
   },
   {
     id: 2,
-    title: "SaaS Dashboard",
+    title: "Chekz - SaaS Dashboard",
     description:
       "Analytics dashboard for SaaS products with interactive charts and real-time data.",
     technologies: ["React", "TypeScript", "D3.js", "Prisma", "PostgreSQL"],
     category: "react" as const,
-    githubUrl: "https://github.com",
-    liveUrl: "https://demo.com",
+    githubUrl: "https://github.com/mr-wilz/Chekz",
+    liveUrl: "https://chekz.vercel.app/",
     image: "/SAAS.png",
   },
   {
@@ -154,13 +154,13 @@ export const projects = [
   },
   {
     id: 5,
-    title: "Design System",
+    title: "Izilearn ",
     description:
-      "Comprehensive design system with reusable components and documentation.",
-    technologies: ["React", "Storybook", "Figma", "Jest", "Testing Library"],
+      "Comprehensive learning management system with interactive courses and progress tracking.",
+    technologies: ["Css", "HTML", "JavaScript"],
     category: "react" as const,
     githubUrl: "https://github.com",
-    liveUrl: "https://demo.com",
+    liveUrl: "https://izilearn.netlify.app/",
     image: "/project5.jpg",
   },
   {
