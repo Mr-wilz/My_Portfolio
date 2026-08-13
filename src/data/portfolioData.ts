@@ -1,6 +1,6 @@
 export const personalInfo = {
   name: "Wilfort Abel",
-  nickname: "Wilz",
+  nickname: "Mr Wilz",
   role: "Frontend Developer",
   tagline:
     "Crafting high-performance web experiences with precision and purpose.",
@@ -44,12 +44,22 @@ export const socialLinks = [
   },
 ];
 
+export const cvPath = "/Wilfort_AbelCV.pdf";
+
+export const heroQuestions = [
+  "Would you like to hire a developer with practical experience & deadline discipline?",
+  "Would you like to hire a dev who creates real value & contributes to your organization?",
+  "Would you like to hire a purpose-driven dev committed to quality work?",
+  "If your answer is yes - then I am your guy, please contact me!",
+];
+
 export const navLinks = [
   { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Work", href: "#projects" },
   { label: "Experience", href: "#experience" },
   { label: "Contact", href: "#contact" },
+  { label: "Resume", href: cvPath, isExternal: true },
 ];
 
 export const skillGroups = [
@@ -132,7 +142,7 @@ export const projects = [
   },
   {
     id: 3,
-    title: "Travel Planning App",
+    title: "Planit - Travel Planning App",
     description:
       "AI-powered travel planner with itinerary generation and location-based recommendations.",
     technologies: ["React", "Mapbox", "OpenAI", "Supabase", "OpenRouter API"],
@@ -143,26 +153,16 @@ export const projects = [
   },
   {
     id: 4,
-    title: "Fitness Tracker",
+    title: "NegzFit - Fitness Tracker",
     description:
       "Mobile-first fitness application with workout planning and progress tracking.",
     technologies: ["Next.js", "PWA", "Chart.js", "Firebase", "Service Workers"],
     category: "next" as const,
     githubUrl: "https://github.com",
     liveUrl: "https://demo.com",
-    image: "/project4.jpg",
+    image: "/negzfit.png",
   },
-  {
-    id: 5,
-    title: "Izilearn ",
-    description:
-      "Comprehensive learning management system with interactive courses and progress tracking.",
-    technologies: ["Css", "HTML", "JavaScript"],
-    category: "react" as const,
-    githubUrl: "https://github.com",
-    liveUrl: "https://izilearn.netlify.app/",
-    image: "/project5.jpg",
-  },
+
   {
     id: 6,
     title: "GoChat",

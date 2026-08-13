@@ -17,7 +17,7 @@ export default function Experience() {
         <ol className="relative space-y-0" role="list">
           {experiences.map((exp, index) => (
             <FadeIn key={exp.id} delay={index * 0.06}>
-              <li className="relative grid gap-6 pb-12 last:pb-0 md:grid-cols-[9rem_1fr]">
+              <li className="relative grid gap-6 pb-16 last:pb-0 md:grid-cols-[9rem_1fr]">
                 {index < experiences.length - 1 && (
                   <span
                     className="absolute left-[4.5rem] top-8 hidden h-[calc(100%-1rem)] w-px bg-white/[0.08] md:block"

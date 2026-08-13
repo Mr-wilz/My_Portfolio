@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ExternalLink } from "lucide-react";
 import { navLinks, personalInfo, mailtoLink } from "../data/portfolioData";
 import { Button } from "./ui/primitives";
 
@@ -52,8 +52,17 @@ export default function Navbar() {
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="text-sm text-muted-foreground transition-colors hover:text-zinc-100">
+                  target={link.isExternal ? "_blank" : undefined}
+                  rel={link.isExternal ? "noopener noreferrer" : undefined}
+                  className={`inline-flex items-center gap-1.5 text-sm transition-colors ${
+                    link.isExternal
+                      ? "rounded-full border border-indigo-500/30 bg-indigo-500/10 px-3.5 py-1 font-medium text-indigo-300 hover:border-indigo-400 hover:bg-indigo-500/20 hover:text-white"
+                      : "text-muted-foreground hover:text-zinc-100"
+                  }`}>
                   {link.label}
+                  {link.isExternal && (
+                    <ExternalLink className="h-3.5 w-3.5 opacity-80" aria-hidden="true" />
+                  )}
                 </a>
               </li>
             ))}
@@ -113,9 +122,25 @@ export default function Navbar() {
                   <a
                     key={link.href}
                     href={link.href}
+                    target={link.isExternal ? "_blank" : undefined}
+                    rel={link.isExternal ? "noopener noreferrer" : undefined}
                     onClick={() => setMobileOpen(false)}
-                    className="rounded-lg px-3 py-3 text-base text-muted-foreground transition-colors hover:bg-white/[0.04] hover:text-zinc-100">
-                    {link.label}
+                    className={`flex items-center justify-between rounded-lg px-3 py-3 text-base transition-colors ${
+                      link.isExternal
+                        ? "border border-indigo-500/30 bg-indigo-500/10 font-medium text-indigo-300 hover:bg-indigo-500/20 hover:text-white"
+                        : "text-muted-foreground hover:bg-white/[0.04] hover:text-zinc-100"
+                    }`}>
+                    <span className="flex items-center gap-2">
+                      {link.label}
+                      {link.isExternal && (
+                        <span className="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-200 border border-indigo-500/30 font-normal">
+                          PDF CV
+                        </span>
+                      )}
+                    </span>
+                    {link.isExternal && (
+                      <ExternalLink className="h-4 w-4 opacity-80" aria-hidden="true" />
+                    )}
                   </a>
                 ))}
                 <a
